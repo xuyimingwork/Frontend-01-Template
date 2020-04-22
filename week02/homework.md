@@ -5,7 +5,7 @@
 
 ```js
 function UTF8_Encoding(string) {
-  return new Buffer();
+  return encodeURIComponent(string).replace(/%/g,'\\x');
 }
 ```
 
