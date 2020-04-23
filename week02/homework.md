@@ -81,4 +81,40 @@ function UTF8_Encoding(string) {
 
 # 写一个正则表达式，能匹配除了模板字符串外的 string 直接量
 
-- ![](./string-example.png)
+- 示例 ![](./string-example.png)
+- 见标准 11.8.4 String Literals
+
+StringLiteral 可分为
+  - " DoubleStringCharacters<sub>opt</sub> "
+    - 构成块
+      - DoubleStringCharacters
+        - 写法
+          - DoubleStringCharacter DoubleStringCharacters<sub>opt</sub>
+          > 疑惑点：这种写法和数字字面量的 DecimalDigits 由 DecimalDigit 与 DecimalDigits DecimalDigit 构成有什么区别
+        - 构成块
+          - DoubleStringCharacter
+            - 写法
+              - SourceCharacter but not one of " or \ or LineTerminator
+                - 构成块
+                  - SourceCharacter
+              - `<LS>` => `/\u2028/`
+              - `<PS>` => `/\u2029/`
+              - \ EscapeSequence
+                - 构成块
+                  - EscapeSequence
+                    - 构成块
+                      - CharacterEscapeSequence
+                      - 0 [lookahead ∉ DecimalDigit]
+                      - HexEscapeSequence
+                      - UnicodeEscapeSequence
+              - LineContinuation
+                - 等价于 \ LineTerminatorSequence
+                - 构成块
+                  - LineTerminatorSequence
+                    - 写法
+                      - `<LF>`
+                      - `<CR>[lookahead ≠ <LF>] <LS>`
+                      - `<PS>`
+                      - `<CR><LF>`
+  - ' SingleStringCharacters<sub>opt</sub> '
+
