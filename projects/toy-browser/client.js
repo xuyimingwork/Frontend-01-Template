@@ -1,4 +1,5 @@
 const net = require('net')
+const parser = require('./parser')
 
 class Request {
   constructor({
@@ -51,7 +52,6 @@ ${this.bodyText}`
       connection.on('data', (data) => {
         parser.receive(data.toString())
         if (parser.isFinished) {
-          console.log(parser)
           resolve(parser.response)
           connection.end();
         }
@@ -208,7 +208,7 @@ class TrunkedBodyParser {
 }
 
 void async function () {
-  console.log('response', await new Request({
+  const response = await new Request({
     method: 'POST',
     host: '127.0.0.1',
     port: '8088',
@@ -218,5 +218,8 @@ void async function () {
     body: {
       name: 'winter'
     }
-  }).send())
+  }).send()
+
+  const dom = parser.parseHTML(response.body)
+  console.log(dom)
 }()
