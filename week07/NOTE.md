@@ -2,7 +2,10 @@
 
 ## toy-browser
 
-仍在整理，预计本周完成，系列链接：
+博文的排版与渲染还未完成，
+项目的代码已可以运行。
+
+相关链接：
 
 [博文：实现一个玩具浏览器](https://blog.xuyimingwork.com/tag/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%8E%A9%E5%85%B7%E6%B5%8F%E8%A7%88%E5%99%A8/)
 [项目：toy-browser](https://github.com/xuyimingwork/toy-browser)
