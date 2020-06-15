@@ -1,0 +1,182 @@
+{
+  "others": [
+    "bottom",
+    "clear",
+    "clip",
+    "color",
+    "content",
+    "cursor",
+    "direction",
+    "display",
+    "float",
+    "isolation",
+    "left",
+    "opacity",
+    "orphans",
+    "position",
+    "resize",
+    "right",
+    "speak",
+    "top",
+    "visibility",
+    "widows",
+    "zoom",
+    "hyphens",
+    "order",
+    "perspective",
+    "transform",
+    "mask",
+    "filter",
+    "fill",
+    "stroke",
+    "d",
+    "cx",
+    "cy",
+    "x",
+    "y",
+    "r",
+    "rx",
+    "ry",
+    "caption-side",
+    "empty-cells",
+    "letter-spacing",
+    "mix-blend-mode",
+    "pointer-events",
+    "scroll-behavior",
+    "table-layout",
+    "tab-size",
+    "touch-action",
+    "unicode-bidi",
+    "vertical-align",
+    "white-space",
+    "will-change",
+    "z-index",
+    "backface-visibility",
+    "backdrop-filter",
+    "row-gap",
+    "perspective-origin",
+    "user-select",
+    "buffered-rendering",
+    "lighting-color",
+    "mask-type",
+    "alignment-baseline",
+    "baseline-shift",
+    "dominant-baseline",
+    "writing-mode",
+    "vector-effect",
+    "paint-order",
+    "caret-color"
+  ],
+  "box": [
+    "box-shadow",
+    "box-sizing"
+  ],
+  "break": [
+    "break-after",
+    "break-before",
+    "break-inside"
+  ],
+  "image": [
+    "image-orientation",
+    "image-rendering"
+  ],
+  "justify": [
+    "justify-items",
+    "justify-self",
+    "justify-content"
+  ],
+  "line": [
+    "line-height",
+    "line-break"
+  ],
+  "object": [
+    "object-fit",
+    "object-position"
+  ],
+  "offset": [
+    "offset-distance",
+    "offset-path",
+    "offset-rotate"
+  ],
+  "outline": [
+    "outline-color",
+    "outline-offset",
+    "outline-style",
+    "outline-width"
+  ],
+  "overflow": [
+    "overflow-anchor",
+    "overflow-wrap",
+    "overflow-x",
+    "overflow-y"
+  ],
+  "word": [
+    "word-break",
+    "word-spacing"
+  ],
+  "column": [
+    "column-count",
+    "column-gap",
+    "column-rule-color",
+    "column-rule-style",
+    "column-rule-width",
+    "column-span",
+    "column-width"
+  ],
+  "align": [
+    "align-content",
+    "align-items",
+    "align-self"
+  ],
+  "flex": [
+    "flex-basis",
+    "flex-grow",
+    "flex-shrink",
+    "flex-direction",
+    "flex-wrap"
+  ],
+  "grid": [
+    "grid-auto-columns",
+    "grid-auto-flow",
+    "grid-auto-rows",
+    "grid-column-end",
+    "grid-column-start",
+    "grid-template-areas",
+    "grid-template-columns",
+    "grid-template-rows",
+    "grid-row-end",
+    "grid-row-start"
+  ],
+  "shape": [
+    "shape-outside",
+    "shape-image-threshold",
+    "shape-margin",
+    "shape-rendering"
+  ],
+  "transform": [
+    "transform-origin",
+    "transform-style"
+  ],
+  "clip": [
+    "clip-path",
+    "clip-rule"
+  ],
+  "flood": [
+    "flood-color",
+    "flood-opacity"
+  ],
+  "color": [
+    "color-interpolation",
+    "color-interpolation-filters",
+    "color-rendering"
+  ],
+  "fill": [
+    "fill-opacity",
+    "fill-rule"
+  ],
+  "marker": [
+    "marker-end",
+    "marker-mid",
+    "marker-start"
+  ]
+}
