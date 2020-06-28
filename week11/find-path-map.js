@@ -1,8 +1,7 @@
 const map = localStorage.map ? JSON.parse(localStorage.map) : new Array(10000).fill(0)
+const $container = document.getElementById('container')
 
 !function initMap() {
-  const $container = document.getElementById('container')
-
   let mouse = false
   let clear = false
   document.addEventListener('mousedown', e => {

@@ -284,3 +284,7 @@ const map = localStorage.map ? JSON.parse(localStorage.map) : new Array(10000).f
   $save.after($clear)
 }()
 ```
+
+### 寻路算法
+
+见：[HTML](./find-path.html)
