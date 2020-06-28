@@ -65,4 +65,3 @@ async function path(map, start, end, useDeepFirst = false) {
 function getIndex(x, y) {
   return  100 * y + x
 }
-

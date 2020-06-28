@@ -35,6 +35,9 @@ const $container = document.getElementById('container')
 
   const $clear = document.createElement('button')
   $clear.innerText = 'Clear'
-  $clear.addEventListener('click', () => delete localStorage.map)
+  $clear.addEventListener('click', () => {
+    delete localStorage.map
+    location.reload()
+  })
   $save.after($clear)
 }()
