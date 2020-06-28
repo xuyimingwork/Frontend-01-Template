@@ -1,12 +1,10 @@
 # 每周总结可以写在这里
 
-## 异步编程
-
-### 红绿灯问题
+## 异步编程：红绿灯问题
 
 一个路口的红绿灯，会按照绿灯亮 10 秒，黄灯亮 2 秒，红灯亮 5 秒的顺序无限循环，用 JS 实现
 
-#### 基础设施
+### 基础设施
 
 ```html
 <!DOCTYPE html>
@@ -99,7 +97,7 @@ function sleep(time) {
 }
 ```
 
-#### 版本一：setTimeout
+### 版本一：setTimeout
 
 ```js
 function useSetTimeout() {
@@ -110,7 +108,7 @@ function useSetTimeout() {
 }
 ```
 
-#### 版本二：promise
+### 版本二：promise
 
 ```js
 function usePromise() {
@@ -128,7 +126,7 @@ function usePromise() {
 }
 ```
 
-#### 版本三：async await
+### 版本三：async await
 
 无需回调
 
@@ -145,7 +143,7 @@ async function useAsyncAwait() {
 }
 ```
 
-#### 版本四：手动控制
+### 版本四：手动控制
 
 ```js
 async function useManual() {
@@ -179,7 +177,7 @@ async function useManual() {
 }
 ```
 
-#### 版本五：generator
+### 版本五：generator
 
 ```js
 function useGenerator() {
@@ -207,3 +205,7 @@ function useGenerator() {
   co(main)
 }
 ```
+
+## 寻路
+
+
