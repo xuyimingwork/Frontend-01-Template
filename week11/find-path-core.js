@@ -9,6 +9,7 @@ async function path(map, start, end, useDeepFirst = false) {
   map = map.slice()
 
   /**
+   * 0. 集合中保存的是下一步可选的所有点
    * 1. 从集合获取当前节点
    * - 若当前节点是终点，计算路径并返回
    * - 若当前节点不是终点，向集合中插入可行的下一节点
