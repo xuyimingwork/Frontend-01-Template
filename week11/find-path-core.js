@@ -1,3 +1,34 @@
+class Collection {
+  constructor(data, compare) {
+    if (!Array.isArray(data)) throw Error('data need to be an array')
+    if (typeof compare !== 'function') throw Error('compare should be a function')
+
+    this.data = data
+    this.compare = compare
+  }
+
+  take() {
+    if (!this.data.length) return
+    let targetIndex = 0
+    for (let i = 1; i < this.data.length; i++) {
+      if (this.compare(this.data[i], this.data[targetIndex]) < 0) {
+        targetIndex = i
+      }
+    }
+    const target = this.data[targetIndex]
+    this.data[targetIndex] = this.data[this.data.length - 1]
+    this.data[this.data.length - 1] = target
+    return this.data.pop()
+  }
+
+  push(point) {
+    this.data.push(point)
+  }
+
+  get length() {
+    return this.data.length
+  }
+}
 async function path(map, start, end, useDeepFirst = false) {
   // set params
   if (!Array.isArray(map)) throw Error('invalid map')
@@ -15,13 +46,9 @@ async function path(map, start, end, useDeepFirst = false) {
    * - 若当前节点不是终点，向集合中插入可行的下一节点
    * 2. 遍历集合，直至集合为空
    */
-  const collection = [start]
+  const collection = new Collection([start], (a, b) => distance(a, end) - distance(b, end))
   while (collection.length) {
-    /**
-     * pop 为深度优先搜索，先解析最后进入集合的节点
-     * shift 为广度优先搜索，先解析先进入集合的节点
-     */ 
-    const [x, y] = current = useDeepFirst ? collection.pop() : collection.shift()
+    const [x, y] = current = collection.take()
 
     // 若找到最后一个节点，计算经过路径并返回
     if (x === end[0] && y === end[1]) {
@@ -59,6 +86,14 @@ async function path(map, start, end, useDeepFirst = false) {
   return null
 
   // 定义辅助函数
+  function distance(a, b) {
+    if (!Array.isArray(a) || a.length !== 2) throw Error()
+    if (!Array.isArray(b) || b.length !== 2) throw Error()
+    const [ax, ay] = a
+    const [bx, by] = b
+    return (ax - bx) ** 2 + (ay - by) ** 2
+  }
+
   async function insert(next, current) {
     const [x, y] = next
     const index = getIndex(x, y)
