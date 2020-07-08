@@ -1,34 +1,3 @@
-class Collection {
-  constructor(data, compare) {
-    if (!Array.isArray(data)) throw Error('data need to be an array')
-    if (typeof compare !== 'function') throw Error('compare should be a function')
-
-    this.data = data
-    this.compare = compare
-  }
-
-  take() {
-    if (!this.data.length) return
-    let targetIndex = 0
-    for (let i = 1; i < this.data.length; i++) {
-      if (this.compare(this.data[i], this.data[targetIndex]) < 0) {
-        targetIndex = i
-      }
-    }
-    const target = this.data[targetIndex]
-    this.data[targetIndex] = this.data[this.data.length - 1]
-    this.data[this.data.length - 1] = target
-    return this.data.pop()
-  }
-
-  push(point) {
-    this.data.push(point)
-  }
-
-  get length() {
-    return this.data.length
-  }
-}
 async function path(map, start, end, useDeepFirst = false) {
   // set params
   if (!Array.isArray(map)) throw Error('invalid map')
@@ -46,7 +15,7 @@ async function path(map, start, end, useDeepFirst = false) {
    * - 若当前节点不是终点，向集合中插入可行的下一节点
    * 2. 遍历集合，直至集合为空
    */
-  const collection = new Collection([start], (a, b) => distance(a, end) - distance(b, end))
+  const collection = new CollectionBinaryHeap([start], (a, b) => distance(a, end) - distance(b, end))
   while (collection.length) {
     const [x, y] = current = collection.take()
 
@@ -58,7 +27,7 @@ async function path(map, start, end, useDeepFirst = false) {
         path.unshift(prevLocation)
         $container.children[getIndex(...prevLocation)].style.backgroundColor = 'lightblue'
         prevLocation = map[getIndex(...prevLocation)]
-        await sleep(1)
+        await sleep(5)
       }
       return path
     }
@@ -101,7 +70,7 @@ async function path(map, start, end, useDeepFirst = false) {
     if (map[index] !== 0) return
     map[index] = current
     $container.children[index].style.backgroundColor = 'lightgreen'
-    await sleep(1)
+    await sleep(5)
     collection.push([x, y])
   }
 
