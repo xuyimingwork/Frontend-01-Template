@@ -14,3 +14,22 @@
 
 - [代码](./range.js)
 
+## 组件化基础
+
+对象与组件
+
+- 对象
+  - properties
+  - methods
+  - inherit
+
+- 组件
+  - properties
+  - methods
+  - inherit
+  - attribute
+  - config & state
+  - event
+  - lifecycle
+  - children
+
