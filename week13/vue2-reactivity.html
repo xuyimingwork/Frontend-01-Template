@@ -1,0 +1,46 @@
+<input id="r" type="range" min="0" max="255">
+<input id="g" type="range" min="0" max="255">
+<input id="b" type="range" min="0" max="255">
+<div id="color" style="width: 100px; height: 100px;"></div>
+<script>
+  let target = null
+
+  function observe(data) {
+    Object.keys(data).forEach(function defineReactive(key) {
+      let value = data[key]
+      let cbs = []
+      Object.defineProperty(data, key, {
+        get: function () {
+          if (target) cbs.push(target)
+          return value
+        },
+        set: function (newValue) {
+          if (value === newValue) return
+          value = newValue
+          cbs.forEach(cb => cb())
+        }
+      })
+    })
+  }
+
+  function run(cb) {
+    target = cb
+    cb()
+    target = null
+  }
+
+  const data = {
+    r: 0,
+    g: 0,
+    b: 0
+  }
+
+  observe(data)
+  run(() => document.getElementById('r').value = data.r)
+  run(() => document.getElementById('g').value = data.g)
+  run(() => document.getElementById('b').value = data.b)
+  run(() => document.getElementById('color').style.backgroundColor = `rgb(${data.r}, ${data.g}, ${data.b})`)
+  document.getElementById('r').addEventListener('input', e => data.r = e.target.value)
+  document.getElementById('g').addEventListener('input', e => data.g = e.target.value)
+  document.getElementById('b').addEventListener('input', e => data.b = e.target.value)
+</script>

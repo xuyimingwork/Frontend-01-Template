@@ -6,6 +6,8 @@
 
 - [代码](./proxy.js)
 
+> Vue 2 实现相同功能：[代码](./vue2-reactivity.html)
+
 ## Range
 
 使用 Range 实现 DOM 精确操作
