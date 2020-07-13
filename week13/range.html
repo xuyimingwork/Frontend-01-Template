@@ -1,0 +1,66 @@
+<div id="container">
+  文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+  文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+  文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+  文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+  文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+  文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+  文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字
+</div>
+<div id="draggable" style="width: 100px; height: 100px; background-color: pink;display: inline-block;"></div>
+<script>
+  const draggable = document.getElementById('draggable')
+  draggable.addEventListener('mousedown', (() => { 
+    let baseX = 0
+    let baseY = 0
+    return event => {
+      const { clientX: startX, clientY: startY } = event
+      
+      const move = event => {
+        const { clientX, clientY } = event
+
+        const range = nearest(clientX, clientY)
+        range.insertNode(draggable)
+
+        // const x = baseX + clientX - startX
+        // const y = baseY + clientY - startY
+        // draggable.style.transform = `translate(${x}px, ${y}px)`
+      }
+
+      const up = event => {
+        const { clientX, clientY } = event
+        baseX = baseX + clientX - startX
+        baseY = baseY + clientY - startY
+        document.removeEventListener('mousemove', move)
+        document.removeEventListener('mouseup', up)  
+      }
+      document.addEventListener('mousemove', move)
+      document.addEventListener('mouseup', up)
+    }
+  })())
+
+  const container = document.getElementById('container') 
+  const ranges = []
+  for (let i = 0; i < container.childNodes[0].textContent.length; i++) {
+    const range = document.createRange()
+    range.setStart(container.childNodes[0], i)
+    range.setEnd(container.childNodes[0], i)
+    ranges.push(range)
+  }
+  
+  function nearest(x, y) {
+    let nearestRange = null
+    let distance = Infinity
+    for (let range of ranges) {
+      const { x: rx,  y: ry } = range.getBoundingClientRect()
+      const d = (x - rx) ** 2 + (y - ry) ** 2
+      if (d < distance) {
+        nearestRange = range
+        distance = d
+      }
+    }
+    return nearestRange
+  }
+
+  document.addEventListener('selectstart', event => event.preventDefault())
+</script>
