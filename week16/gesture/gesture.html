@@ -1,0 +1,9 @@
+<body></body>
+<script src="./gesture.js"></script>
+<script>
+  window.addEventListener('contextmenu', event => event.preventDefault())
+  enableGesture(document.body)
+  document.body.addEventListener('tap', event => {
+    console.log('out', event)
+  })
+</script>
