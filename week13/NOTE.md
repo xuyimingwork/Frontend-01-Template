@@ -14,4 +14,4 @@
 
 - [代码](./range.js)
 
-## [组件化基础](./note-component.md)
+## [组件化 | 组件的基本知识](./note-component.md)
