@@ -1,5 +1,10 @@
 # 极客大学「前端进阶训练营-第1期」作业提交仓库
 
+## 作业完成情况记录
+
+- week13
+  - [x] 组件化基础
+
 ## 讲师课件下载地址
 
 请大家通过该链接查看讲师课件并进行下载，链接: https://pan.baidu.com/s/1JFtYmCg2aGRcMAnCnqZRbw 密码:xanj
