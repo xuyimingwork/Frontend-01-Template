@@ -2,3 +2,5 @@
 
 ## 手势
 
+[代码](./gesture/gesture.js)
+
